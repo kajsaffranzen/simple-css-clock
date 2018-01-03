@@ -1,0 +1,62 @@
+$background-color: #2D5F7A;
+$pointer-color: #538EA6;
+$border-color: #F28C8C;
+
+@mixin align-horizontally-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body {
+  background: $background-color;
+  height: 100vh;
+}
+
+.clock-wrapper {
+  @include align-horizontally-center;
+  height: inherit;
+
+  .clock-wrapper-content {
+    background: white;
+    border: 20px solid $border-color;
+    border-radius: 100%;
+    height: 300px;
+    position: relative;
+    width: 300px;
+
+    .clock__center {
+      background: $border-color;
+      border-radius: 100%;
+      height: 10%;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 10%;
+      z-index: 1;
+    }
+
+    .clock__content {
+      transform-origin: bottom;
+      position: absolute;
+      top: 6%;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 45%;
+      border-radius: 20px;
+
+    }
+
+    .clock__content--minute, .clock__content--hour {
+      background: $pointer-color;
+      width: 5%;
+    }
+
+    .clock__content--second {
+      background: #F2B8A2;
+      background: black;
+      width: 1%;
+    }
+  }
+}
